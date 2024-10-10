@@ -1,0 +1,42 @@
+REGRAS DE NEGÓCIO APLICADAS A ENTREGA
+
+quando o entregador aceitar realizar a entrega
+-> localizar o entregador na tabela localização e setar campo disponível como false (backend)
+-> registrar o entregador na tabela entrega (backend)
+-> registrar o status EDR=Entregador em deslocamento para o local de retirada (backend - criar esse enumerador)
+
+quando o entregador pegar a encomenda no local de retirada (mobile-rest-api)
+-> registrar a hora de saída na tabela entrega
+-> registrar o status I-Iniciada na tabela entrega-status
+
+quando o entregador deixar a encomenda no local de entrega (mobile-rest-api)
+-> registrar a hora de chegada na tabela entrega
+-> registrar o status C-Concluída na tabela entrega-status
+-> localizar o entregador na tabela localização e setar campo disponível como true (backend)
+
+relativo o registro da localização do entregador 
+-> registrar a localização a cada 30 segundos (rest-api -> /localizacoes/entregador)
+-> o registro da localização não pode incluir no json o campo disponível 
+
+
+Após login do entregador
+
+1) Inicia registro da localização a cada 30 segundos
+   tabela LOCALIZACAO, campos: pessoa, latitude e longitude
+   endpoint: /localizacoes/entregador
+
+2) Informa que está disponível 
+   tabela PESSOA, campo: online
+   endpoint: /pessoas/{id}/{online}
+   -> o backend deverá registrar na tabela localização que o estregador está disponível
+
+3) Informa o veículo que está utilizando 
+   tabela VEICULO, campo: ativo
+   endpoint: /veiculos/{id}/{ativo} 
+
+
+  "pessoa": { "id": 5 },
+  "latitude": -16.687471,
+  "longitude": -49.250314
+
+

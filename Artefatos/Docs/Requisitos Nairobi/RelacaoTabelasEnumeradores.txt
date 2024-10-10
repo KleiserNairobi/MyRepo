@@ -1,0 +1,113 @@
+RELAÇÃO DE TABELAS / ENUMERADORES
+
+AGENCIA
+-> não contém enumerador
+
+AGENDAMENTO
+-> tipo_agendamento (U=Único, D=Diário, S=Semanal, Q=Quinzenal, M=Mensal)
+-> tipo_pgto (D=Dinheiro, CD=Cartão Débito, CC=Cartão Crédito, C=Carteira)
+-> deslocamento (OD=Origem/Destino, ODO=Origem/Destino/Origem)
+-> ativo (S=Sim, N=Não)
+
+AGENDAMENTO_ENDERECO
+-> tipo (O=Origem, D=Destino) 
+
+APROVACAO
+-> status (E=Em Análise; A=Aprovado; R=Rejeitado; S=Suspenso; P=Pendente) 
+
+BANCO
+-> não contém enumerador
+ 
+CARTAO
+-> ativo (S=Sim, N=Não)
+ 
+CATEGORIA
+-> tipo (R=Receita, D=Despesa, A=Ambos)
+ 
+CIDADE
+-> não contém enumerador
+ 
+CONTA
+-> tipo (C=Corrente, P=Poupança)
+-> ativo (S=Sim, N=Não)
+
+CONTA_CAIXA
+-> tipo (C=Corrente, P=Poupança, I=Investimento, X=Caixa Interno)
+
+DESCONTO
+-> não contém enumerador
+ 
+ENDERECO
+-> ativo (S=Sim, N=Não)
+ 
+ENTREGA
+-> tipo_veiculo (B=Bike, M=Moto, C=Carro, CM=Caminhão)
+-> deslocamento (OD=Origem/Destino, ODO=Origem/Destino/Origem) 
+-> status_solicitação (NI=Não Iniciada, I=Iniciada, CA=Cancelada, CO=Concluída, ENE=Entregador não Encontrado, EDR=Entregador em deslocamento para o local de retirada)
+ 
+ENTREGA_AVALIACAO
+-> não contém enumerador
+
+ENTREGA_ENDERECO
+-> tipo (O=Origem, D=Destino)
+
+ENTREGA_PAGAMENTO
+-> tipo_pgto (D=Dinheiro, CD=Cartão Débito, CC=Cartão Crédito, C=Carteira)
+-> status_pgto (NI=Não Iniciada, I=Iniciada, N=Negada, A=Autorizada, TCP=Taxa Cancelamento Pendente, TCC=Taxa Cancelamento Concluída)
+
+
+ESTADO
+-> não contém enumerador
+ 
+FOTO
+-> tipo (P=Perfil, RG=Identidade, CE=Comprovante de Endereço, CRLV=Veículo, CNH=Habilitação)
+-> tipo_conteudo (JPG=jpg, JPEG=jpeg, PNG=png)
+
+GATEWAY
+-> tipo_gateway (IG=Iugu, MP=MercadoPago, PM=Pagar.me, PP=PicPay, PS=PagSeguro, WC=WireCard)
+ 
+GATEWAY_TAXAS
+-> não contém enumerador
+
+MOVIMENTO_CONTA_CAIXA
+-> origem (R=Receber, P=Pagar, B=Banco, O=Outros)
+-> operacao  (C=Crédito, D=Débito) 
+ 
+PAGAR
+-> origem (E=Entrega, NF=Nota Fiscal, B=Boleto, R=Recibo)
+ 
+PARCEIRO_TABELA_PRECO
+-> não contém enumerador
+ 
+PARCELA_PAGAR
+-> não contém enumerador
+ 
+PARCELA_RECEBER
+-> não contém enumerador
+ 
+PERMISSAO
+-> não contém enumerador
+ 
+PESSOA
+-> tipo (F=Física, J=Jurídica)
+-> ativo (S=Sim, N=Não)
+ 
+RECEBER
+-> origem (E=Entrega, NF=Nota Fiscal, B=Boleto, R=Recibo)
+ 
+TABELA_PRECO
+-> ativo (S=Sim, N=Não)
+ 
+TABELA_PRECO_ITEM
+-> não contém enumerador
+ 
+USUARIO
+-> ativo (S=Sim, N=Não)
+
+USUARIO_PERMISSAO
+-> não contém enumerador
+ 
+VEICULO
+-> tipo (B=Bike, M=Moto, C=Carro, CM=Caminhão)
+-> ativo (S=Sim, N=Não)
+

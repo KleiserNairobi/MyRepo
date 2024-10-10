@@ -1,0 +1,31 @@
+PESSOAS E USUÁRIOS NO SISTEMA CHAMAIH
+
+Pessoa 1
+WebSocket API AWS 
+	Usuarios: 
+		User 1: WebSocket API AWS (email: websocket@chamai.com.br, senha: 123456)
+
+Pessoa 2
+Nairobi Sistemas 
+	Usuarios:
+		User 1: Nairobi Sistemas (nairobi.sistemas@gmail.com, senha: 123456)
+		User 2: Kleiser Nairobi (kleiser.nairobi@gmail.com, senha: 280896)
+		User 3: Vicente Silva (vicente.pspenha@gmail.com, senha: 123456)
+		User 4: Pablo Lima (pablolimajp@yahoo.com.br - 123456)
+
+Pessoa 3
+Chamaih S/A
+	Usuarios:
+		User 1: Chamaih S/A (chamaih@chamaih.com.br, senha: 123456)
+		User 5: Cristiane Lauxen
+		User 6: Bruno Brito Barbosa
+		User 7: Wilker Resende Borges
+		User 8: Suporte 1
+		User 9: Suporte 2
+		User 10: ...
+		
+	  
+const url = `wss://0pydy17fgf.execute-api.us-east-1.amazonaws.com/dev`;
+const params = `?idUsuario=${idUsuario}&nomeUsuario=${nomeUsuario}&tipoPessoa=${tipoMembro}`;
+
+ainda deveremos passar o tipo de pessoa associado ao usuário (CLI, COL, PAR, ENT)

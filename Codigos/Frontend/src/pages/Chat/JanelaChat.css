@@ -1,0 +1,109 @@
+.janelaChat {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.janelaChat-cabecalho {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+}
+
+.janelaChat-info {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.janelaChat-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.janelaChat-nome {
+  font-size: 17px;
+  color: #000;
+}
+
+.janelaChat-botoes {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.janelaChat-botao {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all ease 0.3s;
+}
+
+.janelaChat-corpo {
+  flex: 1;
+  overflow-y: auto;
+  background-color: #e5ddd5;
+  padding: 20px 30px;
+}
+
+.janelaChat-corpo::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.janelaChat-corpo::-webkit-scrollbar-thumb {
+  background-color: rgb(0, 0, 0, 0.2);
+}
+
+.janelaChat-rodape {
+  height: 62px;
+  display: flex;
+  align-items: center;
+}
+
+.janelaChat-esquerda {
+  display: flex;
+  margin: 0 15px;
+}
+
+.janelaChat-centro {
+  flex: 1;
+}
+
+.janelaChat-input {
+  width: 100%;
+  height: 40px;
+  border: 0;
+  outline: 0;
+  background-color: #fff;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #4a4a4a;
+  padding-left: 15px;
+}
+
+.janelaChat-direita {
+  display: flex;
+  margin: 0 15px;
+}
+
+.janelaChat-emoji {
+  height: 210px;
+  overflow-y: hidden;
+  transition: all ease 0.3s;
+}
+
+aside.emoji-picker-react {
+  width: auto !important; 
+}
+

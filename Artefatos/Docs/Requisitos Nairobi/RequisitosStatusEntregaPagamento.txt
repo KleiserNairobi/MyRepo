@@ -1,0 +1,29 @@
+STATUS DA ENTREGA
+a) Ao inserir uma entrega (app cliente)
+   -> sistema gera automaticamente um status de entrega do tipo NI-Não iniciada
+b) Ao alterar uma entrega registrando a hora de saída (app entregador)
+   -> deve-se consumir o endpoint entrega-status registrando o status I-iniciado
+c) Ao alterar uma entrega registrando a hora de chegada (app entregador)
+   -> deve-se consumir o endpoint entregas-status registrando o status CO-concluída
+d) Ao procurar um entregador, não havendo quem atenda (app cliente)
+   -> deve-se consumir o endpoint entrega-status registrando o status ENE-Entregador não encontrado
+   -> deve-se também cancelar/estornar a entrega (pagar, receber, etc.)
+
+
+STATUS DO PAGAMENTO
+a) Ao inserir um pagamento do tipo D-Dinheiro (app cliente)
+   -> sistema gera automaticamente um status de pagamento do tipo I-Iniciado e logo após A-autorizado
+b) Ao inserir um pagamento do tipo CC-Cartão de Crédito (app cliente)
+   -> sistema gera automaticamente um status de pagamento do tipo I-Iniciado
+c) caso pagamento seja do tipo CC e a resposta do gateway seja do tipo rejeitado (app cliente)
+   -> deve-se consumir o endpoint pagamentos-status registrando o status N-Negado
+d) caso pagamento seja do tipo CC e a resposta do gateway seja do tipo aprovado (app cliente)
+   -> deve-se consumir o endpoint pagamentos-status registrando o status A-Autorizado
+e) seja o pagamento do tipo D ou CC e um entregador aceitar (app cliente)
+   -> deve-se consumir o endpoint pagamentos-status registranto o status E-Efetuado
+      aqui ocorrerá o rateio do dinheiro (backend)
+f) caso usuário opte por cancelar a entrega e o pagamento já tenha sido efetuado (estudarei se dá pra fazer pelo back)
+   -> deve-se consumir o endpoint pagamentos-status registranto o status TCP-Taxa cancelamento pendente
+g) quando o sistema tiver concluído um estorno de uma entrega (estudarei se dá pra fazer pelo back)
+   -> deve-se consumir o endpoint pagamentos-status registranto o status TCC-Taxa cancelamento concluída
+

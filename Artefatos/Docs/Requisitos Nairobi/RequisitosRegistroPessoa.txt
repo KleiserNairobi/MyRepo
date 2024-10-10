@@ -1,0 +1,37 @@
+Requisitos para registo de pessoa no app
+
+1) QUANDO CLIENTE PESSOA FÍSICA
+    -> As telas 1, 2, 3, 4, 5, 6 e 7 são públicas.
+	-> O usuário irá preencher os dados necessários relativos a tela 3, 4 e 5.
+	-> A tela 6 corresponde a tela de condições de uso do app. 
+	-> Os dados inseridos na tela 3, 4 e 5 serão enviados ao servidor quando o 
+	   usuário concordar com os termos. 
+	-> O Front deverá consumir o serviço correspondente ao cadastro de pessoa.
+	-> Quando o servidor receber os dados, deverá preencher a tabela USUARIO,
+	   PESSOA e ENDERECO.
+	-> O campo ATIVO presente nas tabelas USUARIO, PESSOA e ENDERECO devem ser 
+	   setados para TRUE.
+	-> O campo DATA_INCLUSAO deve receber a data corrente.
+
+2) QUANDO CLIENTE PESSOA JURÍDICA
+    -> As telas 1, 2, 3, 4, 5, 6, 7 e 8 são públicas.
+	-> O usuário irá preencher os dados necessários relativos a tela 3, 4, 5 e 6.
+	-> A tela 7 corresponde a tela de condições de uso do app. 
+	-> Os dados inseridos na tela 3, 4, 5 e 6 serão enviados ao servidor quando o 
+	   usuário concordar com os termos. 
+	-> O Front deverá consumir o serviço correspondente ao cadastro de pessoa.
+	-> Quando o servidor receber os dados, deverá preencher a tabela USUARIO,
+	   PESSOA e ENDERECO.
+	-> O campo ATIVO presente nas tabelas USUARIO, PESSOA e ENDERECO devem ser setados 
+	   para FALSE, pois este cadastro dependerá de aprovação e será nessa rotina que 
+	   ele se tornará ativo.
+	-> O campo DATA_INCLUSAO deve receber a data corrente.
+
+Obs.: 
+-> Colaboradores serão cadastrados na parte administrativa (web) por um usuário que 
+   tenha permissão para tal. Seu cadastro será ativado no ato.
+-> Quando usuário for entregador, o campo ATIVO presente nas tabelas USUARIO, PESSOA 
+   e ENDERECO deve ser setado para FALSE, pois também dependerá de aprovação.
+-> A tabela VEICULO será preenchida pelos colaboradores da parte administrativa na 
+   rotina de aprovação.
+-> VERIFICAREI A NECESSIDADE DE SE CRIAR UMA TABELA PESSOA-DOCUMENTO

@@ -1,0 +1,6 @@
+module Pods_chamai_chamaiTests {
+  umbrella header "Pods-chamai-chamaiTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

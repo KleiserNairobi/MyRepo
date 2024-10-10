@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Chamaih</string>
+    <string name="facebook_app_id">736922393845876</string>
+    <string name="fb_login_protocol_scheme">fb736922393845876</string>
+    <string name="server_client_id">606096019057-9pa0gafbk5hg6fvts8qttalignraci8l.apps.googleusercontent.com</string>
+</resources>

@@ -1,0 +1,101 @@
+ENTREGA
+
+1) Usuário escolhe o tipo de veículo que fará a entrega (bike, moto, carro)
+2) Usuário entra com o endereço de retirada da mercadoria a ser entregue
+   2.1) Caso queira entrar com um novo endereço 
+        -> vai para tela de registro de endereço (origem)
+   2.2) Caso queira fazer uso de um endereço previamente cadastrado
+        2.2.1) Caso seja cliente pessoa física
+		       -> vai para tela de consulta dos endereços (tipo lista). Após escolha, 
+			      redireciona para tela de registro de endereço para que possa confirmar e/ou 
+				  fazer alguma alteração no endereço.
+		2.2.2) Caso seja cliente pessoa jurídica
+		       -> vai para tela de consulta dos endereços dispondo possibilidade de filtro
+			      por nome, telefone e logradouro. Após escolha, 
+			      redireciona para tela de registro de endereço para que possa confirmar e/ou 
+				  fazer alguma alteração no endereço.
+	2.3) Caso queira que o aplicativo capture sua localização
+	     -> verificar se a geolocalização está ativada
+		    -> caso positivo, capturar latitude e longitude, fazer requisição ao backend
+			   para transformar os dados em endereço e redirecionar para tela de registro
+			   do endereço para que possa confirmar e/ou fazer alguma alteração no endereço.
+			-> caso negativo, apresentar mensagem ao usuário e parar o fluxo para que o 
+			   usuário ative a geolocalização.
+3) Usuário entra com instruções sobre a retirada - origem (não obrigatório)
+4) Usuário entra com o endereço de destino da mercadoria a ser entregue
+   2.1) Caso queira entrar com um novo endereço 
+        -> vai para tela de registro de endereço (origem)
+   2.2) Caso queira fazer uso de um endereço previamente cadastrado
+        2.2.1) Caso seja cliente pessoa física
+		       -> vai para tela de consulta dos endereços (tipo lista). Após escolha, 
+			      redireciona para tela de registro de endereço para que possa confirmar e/ou 
+				  fazer alguma alteração no endereço.
+		2.2.2) Caso seja cliente pessoa jurídica
+		       -> vai para tela de consulta dos endereços dispondo possibilidade de filtro
+			      por nome, telefone e logradouro. Após escolha, 
+			      redireciona para tela de registro de endereço para que possa confirmar e/ou 
+				  fazer alguma alteração no endereço.
+5) Usuário entra com instruções sobre a entrega - destino (não obrigatório)
+6) Usuário confirma a solicitação 
+7) Sistema faz requisição a api do Google para calcular a distância e previsão de tempo
+8) Sistema calcula o valor da entrega 
+9) Sistema apresenta ao usuário a distância, a previsão e o valor (tela inicial)
+10) Usuário confirma a entrega (botão entregar agora)
+11) Sistema grava dados da entrega
+	-> Sistema grava tabela entrega
+	-> Sistema grava tabela entrega_endereco
+12) sistema redireciona ao pagamento (Necessário ter o ID da entrega)
+    12.1) Caso cliente seja pessoa física
+	      -> permite que o mesmo entre com algum cupom de desconto
+		  -> apresenta os métodos de pagamento (dinheiro e cartão)
+	12.2) Caso cliente seja pessoa jurídica
+		  -> permite que o mesmo entre com algum cupom de desconto
+	      -> possibilita entrar com o valor de um produto a ser acrescentado ao valor da entrega
+		  -> apresenta os métodos de pagamento (dinheiro e cartão)
+13) Caso usuário tenha optado por pagamento com cartão
+    13.1) Sistema apresenta os gateways ativos
+	13.2) Usuário escolhe o gateway de sua preferência
+	13.3) Sistema apresenta campos para que entre com os dados do cartão
+		  -> E-mail (pegar esse dado do sistema, não havendo, usuário digita), 
+		  -> CPF (pegar esse dado do sistema, não havendo, usuário digita), 
+		  -> Número (usuário deverá digitar), 
+		  -> validade (usuário deverá digitar), 
+		  -> cód. segurança (usuário deverá digitar), 
+		  -> nome (usuário deverá digitar)
+		  -> VER DIAGRAMA DE SEQUÊNCIA DE INTEGRAÇÃO COM O MERCADO PAGO
+14) Sistema submete dados para gateway aprovar
+    -> caso pagamento seja aprovado, segue para passo 15.
+	-> caso pagamento seja reprovado, apresenta mensagem e volta para o passo 13.
+15) Sistema localiza entregador 
+	-> Caso entrega tenha partido de algum agendamento, verifica se foi especificado um 
+	   entregador da preferência do solicitante. Havendo o mesmo, sistema verifica se o 
+	   mesmo está online. Caso positivo, verifica se o mesmo não está associado a entrega 
+	   em andamento. Requisitos atendidos, aloca-o. Requisitos não atendidos, procura outro.
+	-> Sistema filtra os entregadores online cujo tipo de veículo corresponde a solicitação 
+	   e que não estejam associados a entrega em andamento
+	-> Sistema ranqueia os entregadores mais próximos (cálculo de distânia do local da coleta)
+	-> Sistema opta pelo entregador mais próximo. 
+	-> Sistema envia para o entregador dados da entrega, para que possa aceitar ou rejeitar a solicitação.
+16) Entregador aceita ou nega a entrega
+17) Sistema apresenta tela congratulação informando também o respectivo entregador
+	17.1) Sistema grava tabela entrega_pagamento
+	17.2) Caso usuário opte pagar em dinheiro
+		  17.2.1) Sistema deve lançar contas a receber
+				-> O valor será o percentual correspondente ao chamaí sobre o valor da entrega
+				-> Devedor: o entregador / Credor: o chamaí
+		  17.2.2) Sistema deve lançar contas a pagar
+				-> o valor será o percentual correspondente ao entregador sobre o valor da entrega
+				-> Devedor: o chamaí / Credor: o entregador
+				-> Essa conta tem que ser registrada já como paga, entdo em vista que o entregador
+				   antecipa o valor e o restitui no recebimento
+	17.3) Caso usuário opte pagar em cartão
+		  17.3.1) Sistema deve lançar contas a receber
+				-> O valor será o percentual correspondente ao chamaí sobre o valor da entrega
+				-> Devedor: o entregador / Credor: o chamaí
+		  17.3.2) Sistema deve lançar contas a pagar
+				-> o valor será o percentual correspondente ao entregador sobre o valor da entrega
+				-> Devedor: o chamaí / Credor: o entregador
+18) Sistema oferece a possibilidade de rastrear a entrega (ainda verei como)	  
+
+
+

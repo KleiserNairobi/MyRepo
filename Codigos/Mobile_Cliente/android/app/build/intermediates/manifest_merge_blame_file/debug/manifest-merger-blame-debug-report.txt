@@ -1,0 +1,133 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.chamai"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="16"
+9        android:targetSdkVersion="28" />
+10
+11    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+11-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\debug\AndroidManifest.xml:5:5-77
+11-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\debug\AndroidManifest.xml:5:22-75
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:4:5-67
+12-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:4:22-64
+13    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+13-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:5:5-79
+13-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:5:22-76
+14    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+14-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:6:5-81
+14-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:6:22-78
+15    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- Include required permissions for Google Maps API to run. -->
+15-->[com.facebook.flipper:flipper:0.33.1] C:\Users\Kleiser Nairobi\.gradle\caches\transforms-2\files-2.1\9cc161c44ffa1bbb7d03b8f28903b01e\jetified-flipper-0.33.1\AndroidManifest.xml:16:5-76
+15-->[com.facebook.flipper:flipper:0.33.1] C:\Users\Kleiser Nairobi\.gradle\caches\transforms-2\files-2.1\9cc161c44ffa1bbb7d03b8f28903b01e\jetified-flipper-0.33.1\AndroidManifest.xml:16:22-73
+16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+16-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Kleiser Nairobi\.gradle\caches\transforms-2\files-2.1\23d0049f114c5e7279521abaf135f8fb\jetified-play-services-maps-17.0.0\AndroidManifest.xml:23:5-79
+16-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Kleiser Nairobi\.gradle\caches\transforms-2\files-2.1\23d0049f114c5e7279521abaf135f8fb\jetified-play-services-maps-17.0.0\AndroidManifest.xml:23:22-76
+17
+18    <uses-feature
+18-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Kleiser Nairobi\.gradle\caches\transforms-2\files-2.1\23d0049f114c5e7279521abaf135f8fb\jetified-play-services-maps-17.0.0\AndroidManifest.xml:26:5-28:35
+19        android:glEsVersion="0x00020000"
+19-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Kleiser Nairobi\.gradle\caches\transforms-2\files-2.1\23d0049f114c5e7279521abaf135f8fb\jetified-play-services-maps-17.0.0\AndroidManifest.xml:27:9-41
+20        android:required="true" />
+20-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Kleiser Nairobi\.gradle\caches\transforms-2\files-2.1\23d0049f114c5e7279521abaf135f8fb\jetified-play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
+21
+22    <application
+22-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:8:5-29:19
+23        android:name="com.chamai.MainApplication"
+23-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:9:7-38
+24        android:allowBackup="false"
+24-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:13:7-34
+25        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+25-->[androidx.core:core:1.1.0] C:\Users\Kleiser Nairobi\.gradle\caches\transforms-2\files-2.1\936cb5c7c30dd0dc083debbe3b303168\core-1.1.0\AndroidManifest.xml:24:18-86
+26        android:debuggable="true"
+27        android:icon="@mipmap/ic_launcher"
+27-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:11:7-41
+28        android:label="@string/app_name"
+28-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:10:7-39
+29        android:roundIcon="@mipmap/ic_launcher_round"
+29-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:12:7-52
+30        android:theme="@style/AppTheme"
+30-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:14:7-38
+31        android:usesCleartextTraffic="true" >
+31-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\debug\AndroidManifest.xml:7:18-53
+32        <activity
+32-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:15:7-26:18
+33            android:name="com.chamai.MainActivity"
+33-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:16:9-37
+34            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+34-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:18:9-86
+35            android:label="@string/app_name"
+35-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:17:9-41
+36            android:launchMode="singleTask"
+36-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:20:9-40
+37            android:screenOrientation="portrait"
+37-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:19:9-45
+38            android:windowSoftInputMode="adjustResize" >
+38-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:21:9-51
+39            <intent-filter>
+39-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:22:9-25:25
+40                <action android:name="android.intent.action.MAIN" />
+40-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:23:13-65
+40-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:23:21-62
+41
+42                <category android:name="android.intent.category.LAUNCHER" />
+42-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:24:13-73
+42-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:24:23-70
+43            </intent-filter>
+44        </activity>
+45        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+45-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:27:7-84
+45-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:27:17-81
+46
+47        <meta-data
+47-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:28:7-122
+48            android:name="com.google.android.geo.API_KEY"
+48-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:28:18-63
+49            android:value="AIzaSyAK3314wVqSt0tga9k1DCvIOfTcDznHeVE" />
+49-->C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\android\app\src\main\AndroidManifest.xml:28:64-119
+50
+51        <provider
+51-->[:react-native-image-picker] C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:10:9-18:20
+52            android:name="com.imagepicker.FileProvider"
+52-->[:react-native-image-picker] C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-56
+53            android:authorities="com.chamai.provider"
+53-->[:react-native-image-picker] C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-60
+54            android:exported="false"
+54-->[:react-native-image-picker] C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-37
+55            android:grantUriPermissions="true" >
+55-->[:react-native-image-picker] C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-47
+56            <meta-data
+56-->[:react-native-image-picker] C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-17:58
+57                android:name="android.support.FILE_PROVIDER_PATHS"
+57-->[:react-native-image-picker] C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:17-67
+58                android:resource="@xml/provider_paths" />
+58-->[:react-native-image-picker] C:\Projetos\AppEntrega\Fontes\Mobile_Cliente\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:17-55
+59        </provider> <!-- Needs to be explicitly declared on P+ -->
+60        <uses-library
+60-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Kleiser Nairobi\.gradle\caches\transforms-2\files-2.1\23d0049f114c5e7279521abaf135f8fb\jetified-play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
+61            android:name="org.apache.http.legacy"
+61-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Kleiser Nairobi\.gradle\caches\transforms-2\files-2.1\23d0049f114c5e7279521abaf135f8fb\jetified-play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
+62            android:required="false" />
+62-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Kleiser Nairobi\.gradle\caches\transforms-2\files-2.1\23d0049f114c5e7279521abaf135f8fb\jetified-play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
+63
+64        <activity
+64-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Kleiser Nairobi\.gradle\caches\transforms-2\files-2.1\ccc342677c641a0775dd5b111eee1ea6\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
+65            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+65-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Kleiser Nairobi\.gradle\caches\transforms-2\files-2.1\ccc342677c641a0775dd5b111eee1ea6\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
+66            android:exported="false"
+66-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Kleiser Nairobi\.gradle\caches\transforms-2\files-2.1\ccc342677c641a0775dd5b111eee1ea6\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
+67            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+67-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Kleiser Nairobi\.gradle\caches\transforms-2\files-2.1\ccc342677c641a0775dd5b111eee1ea6\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
+68
+69        <meta-data
+69-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Kleiser Nairobi\.gradle\caches\transforms-2\files-2.1\99bb49761e53bcb251b11b09ec2a3911\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+70            android:name="com.google.android.gms.version"
+70-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Kleiser Nairobi\.gradle\caches\transforms-2\files-2.1\99bb49761e53bcb251b11b09ec2a3911\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+71            android:value="@integer/google_play_services_version" />
+71-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Kleiser Nairobi\.gradle\caches\transforms-2\files-2.1\99bb49761e53bcb251b11b09ec2a3911\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+72    </application>
+73
+74</manifest>

@@ -1,0 +1,28 @@
+.chatIntroducao {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa;
+  height: 100%;
+}
+
+.chatIntroducao img {
+  width: 250px;
+  height: auto;
+}
+
+.chatIntroducao h1 {
+  font-size: 22px;
+  color: #525252;
+  font-weight: normal;
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+
+.chatIntroducao h2 {
+  font-size: 16px;
+  color: #525252;
+  font-weight: normal;  
+  margin: 0;
+}

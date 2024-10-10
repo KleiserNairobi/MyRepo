@@ -1,0 +1,100 @@
+Regras de negócio para cancelamento de entrega
+--------------------------------------------------------------------------------------------------------------
+-> Caso pagamento tenha sido em dinheiro
+	- tabela entrega (não muda nada)
+	- tabela entrega_endereco (não muda nada)
+	- tabela entrega_status (insere o status CA-Cancelada)
+	- tabela pagamento (insere observação que pagamento não foi realizado pq não tinha entregador disponível)
+	- tabela pagamento_status (insere o status NRE-Não Realizado)
+	
+-> Caso pagamento tenha sido em cartão de crédito
+	- tabela entrega (não muda nada)
+	- tabela entrega_endereco (não muda nada)
+	- tabela entrega_status (insere o status CA-Cancelada)
+	- tabela pagamento (insere observação que pagamento foi estornado pq não tinha entregador disponível)
+	- tabela pagamento_status (insere o status EST-Estornado)
+	- consumir webservice Mercado Pago para estorno mediante id_retorno_gateway da tabela pagamento
+	
+
+Regras de negócio para registro de agendamento
+--------------------------------------------------------------------------------------------------------------
+-> Ao clicar no botão AGENDAR, sistema apresenta tela para preenchimento das informações restantes
+-> Usuário deverá escolher o tipo de agendamento desejado: 
+	- U("Único"), D("Diário"), S("Semanal"), Q("Quinzenal"), M("Mensal")
+-> Usuário deverá informar a data e hora de execução, bem como a quantidade de repetições
+-> O campo ATIVO tem que ser setado para true, para que possa ser "pego" pelo agendador
+-> Usuário poderá informar um entregador de sua preferência
+-> Caso agendamento seja Único, o mesmo acontecerá na data e hora especificado
+-> Caso agendamento seja Diário, o mesmo acontecerá na data e hora especificado, 
+	repetindo-se a quantidade de vezes informada 
+-> Para agendamento Semanal, Quinzenal e Mensal, segue o mesmo princípio.
+-> Em caso de repetição do agendamento, o ID do registro pai tem que ser inserido em todas as repetições
+-> Sendo realizado o agendamento (tornado entrega) o campo REALIZADO tem que ser setado para TRUE
+-> Não sendo realizado o agendamento (tornado entrega) o campo REALIZADO tem que ser setado para FALSE
+
+
+Regras de negócio para cálculo do valor a pagar do agendamento
+--------------------------------------------------------------------------------------------------------------
+-> Com o cálculo do valor do percurso, multiplica-se pela quantidade de repetição
+-> Para agendamento SÓ SERÁ POSSÍVEL PAGAR COM cartão de crédito
+
+
+Regras de negócio para cancelamento do agendamento
+--------------------------------------------------------------------------------------------------------------
+-> O mesmo deverá ser realizado pela tela de "histórico de agendamento"
+-> O sistema deverá setar o campo ATIVO para FALSE nos registros de agendamento que ainda não foram realizados
+-> O sistema deverá apurar o valor de ressarcimento, sendo: valor do percurso multiplicado pela quantidade 
+	de agendamentos não realizados (data futura)
+-> Sistema deverá registrar Conta a Pagar do valor de ressarcimento em favor do cliente
+-> Percebe-se que nesse caso, é necessário ter os dados da conta bancária do cliente
+-> Disparar e-mail para o cliente informando do crédito e necessidade dos dados da conta bancária
+	
+
+Regras de negócio aplicadas na migração do agendamento para entrega
+--------------------------------------------------------------------------------------------------------------
+-> O serviço de migração de agendamento será específico para essa função
+-> Os agendamentos devem ser migrados para entrega com antecedência de 15 minutos
+
+
+Regras de negócio aplicadas a localização de entregador dos agendamentos migrados
+--------------------------------------------------------------------------------------------------------------
+-> Deve-se incluir na tabela ENTREGA os campos HORA_MIGRACAO, HORA_EXECUCAO e PREFERENCIA_ID 
+-> Deve-se criar um agendador específico para localização de entregador do agendamento migrado
+-> A localização do entregador deve ser realizada com antecedência de 10 minutos
+-> A consulta aos dados deverá levar em consideração entregas que tem id de agendamento e não tenha id de 
+	entregador, que correspondam a data e hora de execução em questão	
+-> Havendo entregador da preferência do cliente, o mesmo deverá ser pesquisado primeiro
+-> Localizado o entregador, os seguintes itens devem ser realizados:
+	- registrar o ID do entregador na tabela ENTREGA
+	- setar o campo REALIZADO da tabela agendamento para TRUE
+-> Caso não exista entregador disponível:
+	O campo REALIZADO da tabela AGENDAMENTO deve ser setado para FALSE
+	Sistema deverá registrar Conta a Pagar em favor do cliente no valor da entrega (único)
+
+
+ALTER TABLE public.entrega ADD hora_execucao timetz NULL;
+ALTER TABLE public.entrega ADD hora_migracao timetz NULL;
+ALTER TABLE public.entrega ADD preferencia_id int4 NULL;
+
+
+-- consulta para migrar agendamento
+select * 
+from agendamento 
+where (entregador_id is null) 
+and (realizado is null or realizado = false) 
+and (hora_execucao - TIME '00:15:00' = '20:55:00');
+
+-- consulta para localizar entregador do agendamento que foi migrado
+select * 
+from entrega 
+where entregador_id is null
+and agendamento_id is not null
+and data = :data
+and (current_time - time '00:10:00') between hora_migracao and hora_execucao;
+
+
+
+
+
+
+
